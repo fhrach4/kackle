@@ -1,3 +1,4 @@
+SOURCE_DIR = src/posts
 WEBDIR = /home/ehouse/public_html/
 TEST_WEBDIR = /home/ehouse/public_html/webtest/
 WEBSERVER = bawls.ehouse.io
@@ -10,13 +11,13 @@ new-post:
 
 test-build:
 	@./scripts/prebuild.sh
-	@./scripts/kackle -t build src/personal-site/theme/base.html src/personal-site
+	@./scripts/kackle -t build $(SOURCE_DIR)/theme/base.html src/personal-site
 	@./scripts/kackle sitemap out/personal-site $(SITENAME)
 	@./scripts/postbuild.sh
 
 build:
 	@./scripts/prebuild.sh
-	@./scripts/kackle build src/personal-site/theme/base.html src/personal-site
+	@./scripts/kackle build $(SOURCE_DIR)/theme/base.html src/personal-site
 	@./scripts/kackle sitemap out/personal-site $(SITENAME)
 	@./scripts/postbuild.sh
 
